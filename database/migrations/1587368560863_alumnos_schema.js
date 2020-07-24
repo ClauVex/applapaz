@@ -1,0 +1,78 @@
+'use strict'
+
+/** @type {import('@adonisjs/lucid/src/Schema')} */
+const Schema = use('Schema')
+
+class AlumnosSchema extends Schema {
+    up() {
+        this.create('alumnos', (table) => {
+            table.increments()
+            table.integer('MATRICULA')
+            table.string('NOMBRE')
+            table.string('AP_PATERNO')
+            table.string('AP_MATERNO')
+            table.string('NOMBRE_P')
+            table.date('FEC_NACIM')
+            table.string('TIPO_SANGRE')
+            table.string('CICLO')
+            table.string('SECCION')
+            table.string('GRADO')
+            table.string('GRUPO')
+            table.string('ALERGIA')
+            table.string('LUGAR_NACIM')
+            table.string('DIRECCION')
+            table.string('CIUDAD')
+            table.string('CP')
+            table.string('ESTADO')
+            table.string('TEL_FAX')
+            table.string('PADRE')
+            table.string('RFC_PADRE')
+            table.string('OCUP_PADRE')
+            table.string('EMPRESA_PAD')
+            table.string('DOM_TRAB_PAD')
+            table.string('CD_PADRE')
+            table.string('EDO_PADRE')
+            table.string('TEL_TRAB_P')
+            table.string('CEL_PADRE')
+            table.string('MADRE')
+            table.string('RFC_MADRE')
+            table.string('OCUP_MADRE')
+            table.string('EMPRESA_MAD')
+            table.string('DOM_TRAB_MAD')
+            table.string('CD_MADRE')
+            table.string('EDO_MADRE')
+            table.string('TEL_TRAB_M')
+            table.string('CEL_MADRE')
+            table.string('EDO_CIVIL')
+            table.string('CURP')
+            table.string('SEXO')
+            table.string('STAT_ALUM')
+            table.string('STAT_BECA')
+            table.date('FECHA_CAPT')
+            table.string('SECCION_M')
+            table.string('GRADO_M')
+            table.integer('FACT_A')
+            table.string('RAZON')
+            table.string('RFC_FACT')
+            table.string('MAD_CALLE')
+            table.string('MAD_NUMEXTERIOR')
+            table.string('MAD_NUMINTERIOR')
+            table.string('MAD_COLONIA')
+            table.string('MAD_CODPOST')
+            table.string('MAD_CIUDAD')
+            table.string('MAD_MUNICIPIO')
+            table.string('MAD_ESTADO')
+            table.string('MAD_PAIS')
+            table.string('MAD_EMAIL')
+            table.string('EMERGENCIA')
+            table.string('FOTO')
+            table.timestamps()
+        })
+    }
+
+    down() {
+        this.drop('alumnos')
+    }
+}
+
+module.exports = AlumnosSchema

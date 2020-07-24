@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>document</title>
+  <link href="css/simple-sidebar.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.1.7/css/fixedHeader.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading">
+        <h1>La Paz</h1>
+      </div>
+      <div class="list-group list-group-flush">
+        <a href="#" class="list-group-item list-group-item-action bg-light">ALUMNOS</a>
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <button class="btn btn-primary"id="menu-toggle">Ocultar Menu <i class="fa fa-navicon"></i></button>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">HOME <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a href="/alumnos/crear" id="botonCrear" type="button" class="btn btn-primary">CREAR NUEVO ALUMNO</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="container-fluid">
+          <div class="jumbotron text-center">
+            <h3>ALUMNOS REGISTRADOS</h3>
+          </div>
+          <div class="table-wrapper-scroll-y my-custom-scrollbar">
+            <div class="table-responsive">
+              <table id="myTable" class="display " cellspacing="0" width="100%">
+                  <thead>
+                      <tr>
+                          <th></th>
+                          <th>ID ALUMNO</th>
+                          <th>MATRICULA</th>
+                          <th>AP_PATERNO</th>
+                          <th>AP_MATERNO</th>
+                          <th>NOMBRE_P</th>
+                          <th>FEC_NACIM</th>
+                          <th>TIPO_SANGRE</th>
+                          <th>CICLO</th>
+                          <th>SECCION</th>
+                          <th>GRADO</th>
+                          <th>GRUPO</th>
+                          <th>ALERGIA</th>
+                          <th>LUGAR_NACIM</th>
+                          <th>DIRECCION</th>
+                          <th>CIUDAD</th>
+                          <th>CP</th>
+                          <th>ESTADO</th>
+                          <th>TEL_FAX</th>
+                          <th>PADRE</th>
+                          <th>RFC_PADRE</th>
+                          <th>OCUP_PADRE</th>
+                          <th>EMPRESA_PAD</th>
+                          <th>DOM_TRAB_PAD</th>
+                          <th>CD_PADRE</th>
+                          <th>EDO_PADRE</th>
+                          <th>TEL_TRAB_P</th>
+                          <th>CEL_PADRE</th>
+                          <th>MADRE</th>
+                          <th>RFC_MADRE</th>
+                          <th>OCUP_MADRE</th>
+                          <th>EMPRESA_MAD</th>
+                          <th>DOM_TRAB_MADRE</th>
+                          <th>CD_MADRE</th>
+                          <th>EDO_MADRE</th>
+                          <th>TEL_TRAB_M</th>
+                          <th>CEL_MADRE</th>
+                          <th>EDO_CIVIL</th>
+                          <th>CURP</th>
+                          <th>SEXO</th>
+                          <th>STAT_ALUM</th>
+                          <th>STAT_BECA</th>
+                          <th>FECHA_CAPT</th>
+                          <th>SECCION_M</th>
+                          <th>GRADO_M</th>
+                          <th>FACT_A</th>
+                          <th>RAZON</th>
+                          <th>RFC_FACT</th>
+                          <th>MAD_CALLE</th>
+                          <th>MAD_NUMEXTERIOR</th>
+                          <th>MAD_NUMINTERIOR</th>
+                          <th>MAD_COLONIA</th>
+                          <th>MAD_CODPOST</th>
+                          <th>MAD_CIUDAD</th>
+                          <th>MAD_MUNICIPIO</th>
+                          <th>MAD_ESTADO</th>
+                          <th>MAD_PAIS</th>
+                          <th>MAD_EMAIL</th>
+                          <th>EMERGENCIA</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      @each(alumno in alumnos)
+                      <tr>
+                        <td>
+                        <a class="btn btn-warning" href="/alumnos/editar/{{alumno.id}}"><i title="Editar" class="fa fa-edit"></i></a>
+                        <a class="btn btn-info" href="/alumnos/ver/{{alumno.id}}"><i title="Mirar" class="fa fa-eye"></i></a>
+                      </td>
+                        <td title="ID ALUMNO">{{alumno.id}}</td>
+                        <td title="MATRICULA">{{alumno.MATRICULA}}</td>
+                        <td title="AP_PATERNO">{{alumno.AP_PATERNO}}</td>
+                        <td title="AP_MATERNO">{{alumno.AP_MATERNO}}</td>
+                        <td title="NOMBRE_P">{{alumno.NOMBRE_P}}</td>
+                        <td title="FEC_NACIM">{{alumno.FEC_NACIM}}</td>
+                        <td title="TIPO_SANGRE">{{alumno.TIPO_SANGRE}}</td>
+                        <td title="CICLO">{{alumno.CICLO}}</td>
+                        <td title="SECCION">{{alumno.SECCION}}</td>
+                        <td title="GRADO">{{alumno.GRADO}}</td>
+                        <td title="GRUPO">{{alumno.GRUPO}}</td>
+                        <td title="ALERGIA">{{alumno.ALERGIA}}</td>
+                        <td title="LUGAR_NACIM">{{alumno.LUGAR_NACIM}}</td>
+                        <td title="DIRECCION">{{alumno.DIRECCION}}</td>
+                        <td title="CIUDAD">{{alumno.CIUDAD}}</td>
+                        <td title="CP">{{alumno.CP}}</td>
+                        <td title="ESTADO">{{alumno.ESTADO}}</td>
+                        <td title="TEL_FAX">{{alumno.TEL_FAX}}</td>
+                        <td title="PADRE">{{alumno.PADRE}}</td>
+                        <td title="RFC_PADRE">{{alumno.RFC_PADRE}}</td>
+                        <td title="OCUP_PADRE">{{alumno.OCUP_PADRE}}</td>
+                        <td title="EMPRESA_PAD">{{alumno.EMPRESA_PAD}}</td>
+                        <td title="DOM_TRAB_PAD">{{alumno.DOM_TRAB_PAD}}</td>
+                        <td title="CD_PADRE">{{alumno.CD_PADRE}}</td>
+                        <td title="EDO_PADRE">{{alumno.EDO_PADRE}}</td>
+                        <td title="TEL_TRAB_P">{{alumno.TEL_TRAB_P}}</td>
+                        <td title="CEL_PADRE">{{alumno.CEL_PADRE}}</td>
+                        <td title="MADRE">{{alumno.MADRE}}</td>
+                        <td title="RFC_MADRE">{{alumno.RFC_MADRE}}</td>
+                        <td title="OCUP_MADRE">{{alumno.OCUP_MADRE}}</td>
+                        <td title="EMPRESA_MAD">{{alumno.EMPRESA_MAD}}</td>
+                        <td title="DOM_TRAB_MADRE">{{alumno.DOM_TRAB_MADRE}}</td>
+                        <td title="CD_MADRE">{{alumno.CD_MADRE}}</td>
+                        <td title="EDO_MADRE">{{alumno.EDO_MADRE}}</td>
+                        <td title="TEL_TRAB_M">{{alumno.TEL_TRAB_M}}</td>
+                        <td title="CEL_MADRE">{{alumno.CEL_MADRE}}</td>
+                        <td title="EDO_CIVIL">{{alumno.EDO_CIVIL}}</td>
+                        <td title="CURP">{{alumno.CURP}}</td>
+                        <td title="SEXO">{{alumno.SEXO}}</td>
+                        <td title="STAT_ALUM">{{alumno.STAT_ALUM}}</td>
+                        <td title="STAT_BECA">{{alumno.STAT_BECA}}</td>
+                        <td title="FECHA_CAPT">{{alumno.FECHA_CAPT}}</td>
+                        <td title="SECCION_M">{{alumno.SECCION_M}}</td>
+                        <td title="GRADO_M">{{alumno.GRADO_M}}</td>
+                        <td title="FACT_A">{{alumno.FACT_A}}</td>
+                        <td title="RAZON">{{alumno.RAZON}}</td>
+                        <td title="RFC_FACT">{{alumno.RFC_FACT}}</td>
+                        <td title="MAD_CALLE">{{alumno.MAD_CALLE}}</td>
+                        <td title="MAD_NUMEXTERIOR">{{alumno.MAD_NUMEXTERIOR}}</td>
+                        <td title="MAD_NUMINTERIOR">{{alumno.MAD_NUMINTERIOR}}</td>
+                        <td title="MAD_COLONIA">{{alumno.MAD_COLONIA}}</td>
+                        <td title="MAD_CODPOST">{{alumno.MAD_CODPOST}}</td>
+                        <td title="MAD_CIUDAD">{{alumno.MAD_CIUDAD}}</td>
+                        <td title="MAD_MUNICIPIO">{{alumno.MAD_MUNICIPIO}}</td>
+                        <td title="MAD_ESTADO">{{alumno.MAD_ESTADO}}</td>
+                        <td title="MAD_PAIS">{{alumno.MAD_PAIS}}</td>
+                        <td title="MAD_EMAIL">{{alumno.MAD_EMAIL}}</td>
+                        <td title="EMERGENCIA">{{alumno.EMERGENCIA}}</td>
+                      </tr>
+                      @endeach
+                  </tbody>
+              </table>
+            </div>
+          </div>
+      </div>
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  </div>
+</body>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/fixedheader/3.1.7/js/dataTables.fixedHeader.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+  <!-- /#wrapper -->
+  <!-- Menu Toggle Script -->
+
+<script>
+  $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+  });
+</script>
+
+<script>
+  $(document).ready(function() {
+    $(document).ready(function() {
+  // Setup - add a text input to each footer cell
+    $('#myTable thead tr').clone(true).appendTo( '#myTable thead' );
+    $('#myTable thead tr:eq(1) th').each( function (i) {
+      var title = $(this).text();
+        $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+        $( 'input', this ).on( 'keyup change', function () {
+          if ( table.column(i).search() !== this.value ) {
+            table
+              .column(i)
+              .search( this.value )
+              .draw();
+            }
+          });
+        });
+      var table = $('#myTable').DataTable( {
+        orderCellsTop: true,
+        fixedHeader: true
+      });
+    });
+  });
+</script>
+</html>

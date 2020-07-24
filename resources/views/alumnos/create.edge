@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://drive.google.com/uc?authuser=0&id=1w-OStGxF1oCWETeVHDeBXtJV7-iWoR4t&export=download" type="text/css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="css/simple-sidebar.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div class="jumbotron text-center">
+    <h2>AGREGAR ALUMNO</h2>
+  </div>
+  <div class="container">
+    <form action="/alumnos/crear" method="post">
+        <h3>DATOS DEL ALUMNO</h3>
+        <!--<div class="form-row">
+          <div class="form-group col-md-3">
+            <label>ID ALUMNO</label>
+            <input type="text" class="form-control" name="id" id="id">
+          </div>
+          <div class="form-group col-md-3">
+            <label>MATRICULA</label>
+            <input type="text" class="form-control" id="MATRICULA" name="MATRICULA">
+          </div>
+        </div>-->
+        <div class="form-row">
+            <div class="form-group col-md-3">
+              <label>MATRICULA DEL ALUMNO</label>
+              <input type="text" class="form-control" id="MATRICULA" name="MATRICULA" placeholder="Matricula del alumno">
+            </div>
+            <div class="form-group col-md-3">
+              <label>NOMBRE(S) DEL ALUMNO</label>
+              <input type="text" class="form-control" id="NOMBRE" name="NOMBRE" placeholder="Nombre o nombres del alumno">
+            </div>
+            <div class="form-group col-md-3">
+              <label >APELLIDO PATERNO</label>
+              <input type="text" class="form-control" id="AP_PATERNO" name="AP_PATERNO" placeholder="Apellido paterno del alumno">
+            </div>
+            <div class="form-group col-md-3">
+              <label>APELLIDO MATERNO</label>
+              <input type="text" class="form-control" id="AP_MATERNO" name="AP_MATERNO" placeholder="Apellido materno del alumno">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-2">
+                <label>SECCION</label>
+                <select class="form-control" name="SECCION" id="SECCION">
+                  <option value="" disabled selected>Seccion del alumno</option>
+                  <option value="M">Maternal</option>
+                  <option value="K">Kinder</option>
+                  <option value="P">Primaria</option>
+                  <option value="S">Secundaria</option>
+                  <option value="B">Bachillerato</option>
+                </select>
+              </div>
+              <div class="form-group col-md-2">
+                <label>GRADO</label>
+                <input type="text" class="form-control" id="GRADO" name="GRADO" placeholder="Grado del alumno">
+              </div>
+              <div class="form-group col-md-2">
+                <label>GRUPO</label>
+                <input type="text" class="form-control" id="GRUPO" name="GRUPO" placeholder="Grupo del alumno">
+              </div>
+              <div class="form-group col-md-3">
+                <label >ALERGIAS</label>
+                <input type="text" class="form-control" id="ALERGIA" name="ALERGIA" placeholder="Alergias o problemas de salud del alumno">
+              </div>
+              <div class="form-group col-md-3">
+                <label>CICLO</label>
+                <input type="text" class="form-control" id="CICLO" name="CICLO" placeholder="Ciclo inscrito">
+              </div>
+          </div>
+          <div class="form-row">
+              <div class="form-group col-md-3">
+                <label >CURP DEL ALUMNO</label>
+                <input type="text" class="form-control" id="CURP" name="CURP" placeholder="C.U.R.P del alumno">
+              </div>
+              <div class="form-group col-md-3">
+                <label >SEXO DEL ALUMNO</label>
+                <select name="SEXO" id="SEXO" class="form-control">
+                  <option value="" disabled selected>Sexo</option>
+                  <option value="H">Hombre</option>
+                  <option value="M">Mujer</option>
+                </select>
+              </div>
+              <div class="form-group col-md-3">
+                <label >TIPO DE SANGRE</label>
+                <select class="form-control" name="TIPO_SANGRE" id="TIPO_SANGRE">
+                  <option value="" disabled selected>Tipo de sangre</option>
+                  <option value="O+">O+</option>
+                  <option value="O-">O-</option>
+                  <option value="A+">A+</option>
+                  <option value="A-">A-</option>
+                  <option value="AB+">AB+</option>
+                  <option value="AB-">AB-</option>
+                </select>
+              </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label >LUGAR DE NACIMIENTO</label>
+              <input type="text" class="form-control" id="LUGAR_NACIM" name="LUGAR_NACIM" placeholder="Lugar de nacimiento del alumno">
+            </div>
+            <div class="form-group col-md-3">
+              <label >FECHA NACIMIENTO</label>
+              <input type="date" class="form-control" id="FEC_NACIM" name="FEC_NACIM">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-3">
+                <label >DOMICILIO</label>
+                <input type="text" class="form-control" id="DIRECCION" name="DIRECCION" placeholder="Domicilio de residencia del alumno">
+              </div>
+              <div class="form-group col-md-3">
+                <label >CODIGO POSTAL</label>
+                <input type="text" class="form-control" id="CP" name="CP" placeholder="Codigo postal de el domicilio del alumno">
+              </div>
+              <div class="form-group col-md-3">
+                <label >ESTADO CIVIL PADRES</label>
+                <input type="text" class="form-control" id="EDO_CIVIL" name="EDO_CIVIL" placeholder="Juntos/Separados/...">
+              </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-3">
+                <label >CIUDAD</label>
+                <input type="text" class="form-control" id="CIUDAD" name="CIUDAD" placeholder="Ciudad de residencia">
+              </div>
+              <div class="form-group col-md-3">
+                <label >ESTADO</label>
+                <select class="form-control" name="ESTADO" id="ESTADO">
+                  <option value="" disabled selected>Estado</option>
+                  <option value="Aguascalientes">Aguascalientes</option>
+                  <option value="Baja California">Baja California</option>
+                  <option value="Baja California Sur">Baja California Sur</option>
+                  <option value="Campeche">Campeche</option>
+                  <option value="Coahulia">Coahulia</option>
+                  <option value="Colima">Colima</option>
+                  <option value="Chiapas">Chiapas</option>
+                  <option value="Chihuahua">Chihuahua</option>
+                  <option value="Ciudad de Mexico">Ciudad de Mexico</option>
+                  <option value="Durango">Durango</option>
+                  <option value="Guanajuato">Guanajuato</option>
+                  <option value="Guerrero">Guerrero</option>
+                  <option value="Hidalgo">Hidalgo</option>
+                  <option value="Jalisco">Jalisco</option>
+                  <option value="Estado de Mexico">Estado de Mexico</option>
+                  <option value="Michoacan">Michoacan</option>
+                  <option value="Morelos">Morelos</option>
+                  <option value="Nayarit">Nayarit</option>
+                  <option value="Nuevo Leon">Nuevo Leon</option>
+                  <option value="Oaxaca">Oaxaca</option>
+                  <option value="Puebla">Puebla</option>
+                  <option value="Queretaro">Queretaro</option>
+                  <option value="Quintana Roo">Quintana Roo</option>
+                  <option value="San Luis Potosi">San Luis Potosi</option>
+                  <option value="Sinaloa">Sinaloa</option>
+                  <option value="Sonora">Sonora</option>
+                  <option value="Tabasco">Tabasco</option>
+                  <option value="Tamaulipas">Tamaulipas</option>
+                  <option value="Tlaxcala">Tlaxcala</option>
+                  <option value="Veracruz">Veracruz</option>
+                  <option value="Yucatan">Yucatan</option>
+                  <option value="Zacatecas">Zacatecas</option>
+                </select>
+              </div>
+              <div class="form-group col-md-3">
+                <label >TELEFONO DE CASA</label>
+                <input type="text" class="form-control" id="TEL_FAX" name="TEL_FAX" placeholder="Telefono del domicilio del alumno">
+              </div>
+              <div class="form-group col-md-3">
+                <label >TELEFONO DE EMERGENCIA</label>
+                <input type="text" class="form-control" id="EMERGENCIA" name="EMERGENCIA" placeholder="Telefono de emergencia del alumno">
+              </div>
+              <div class="form-group col-md-3">
+                <label>ESTATUS ALUMNO</label>
+                <select class="form-control" name="STAT_ALUM" id="STAT_ALUM">
+                  <option value="" disabled selected>opcion...</option>
+                  <option value="A">ACTIVO</option>
+                  <option value="S">SUSPENDIDO</option>
+                  <option value="T">TEMPORAL</option>
+                </select>
+              </div>
+              <div class="form-group col-md-3">
+                <label>ESTATUS BECA</label>
+                <select class="form-control" name="STAT_BECA" id="STAT_BECA">
+                  <option value="" disabled selected>opcion...</option>
+                  <option value="S">SI</option>
+                  <option value="N">NO</option>
+                </select>
+              </div>
+              <div class="form-group col-md-3">
+                <label>FOTOGRAFIA ALUMNO</label>
+                <input class="form-control" type="text" name="FOTO" id="FOTO" placeholder="ponga el link de la foto aqui.">
+              </div>
+          </div>
+            <h3>DATOS DEL PADRE</h3>
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label >PADRE</label>
+                    <input type="text" class="form-control" id="PADRE" name="PADRE" placeholder="Nombre del padre del alumno">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label >RFC</label>
+                    <input type="text" class="form-control" id="RFC_PADRE" name="RFC_PADRE" placeholder="RFC del padre">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label >PROFESION/OCUPACION</label>
+                    <input type="text" class="form-control" id="OCUP_PADRE" name="OCUP_PADRE" placeholder="Profesion del padre del alumno">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label >EMPRESA/LUGAR DE TRABAJO</label>
+                    <input type="text" class="form-control" id="EMPRESA_PAD" name="EMPRESA_PAD" placeholder="Empresa de trabajo del padre del alumno">
+                  </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label >DOMICILIO DE TRABAJO</label>
+                    <input type="text" class="form-control" id="DOM_TRAB_PAD" name="DOM_TRAB_PAD" placeholder="Domicilio de la empresa o lugar de trabajo">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label >TELEFONO DE TRABAJO</label>
+                    <input type="text" class="form-control" id="TEL_TRAB_P" name="TEL_TRAB_P" placeholder="Telefono del padre">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label >CELULAR</label>
+                    <input type="text" class="form-control" id="CEL_PADRE" name="CEL_PADRE" placeholder="Celular del padre">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label >CIUDAD Y ESTADO</label>
+                    <input type="text" class="form-control" id="CD_PADRE" name="CD_PADRE" placeholder="Ciudad">
+                    <select class="form-control" name="EDO_PADRE" id="EDO_PADRE">
+                      <option value="" disabled selected>Estado</option>
+                      <option value="Aguascalientes">Aguascalientes</option>
+                      <option value="Baja California">Baja California</option>
+                      <option value="Baja California Sur">Baja California Sur</option>
+                      <option value="Campeche">Campeche</option>
+                      <option value="Coahulia">Coahulia</option>
+                      <option value="Colima">Colima</option>
+                      <option value="Chiapas">Chiapas</option>
+                      <option value="Chihuahua">Chihuahua</option>
+                      <option value="Ciudad de Mexico">Ciudad de Mexico</option>
+                      <option value="Durango">Durango</option>
+                      <option value="Guanajuato">Guanajuato</option>
+                      <option value="Guerrero">Guerrero</option>
+                      <option value="Hidalgo">Hidalgo</option>
+                      <option value="Jalisco">Jalisco</option>
+                      <option value="Estado de Mexico">Estado de Mexico</option>
+                      <option value="Michoacan">Michoacan</option>
+                      <option value="Morelos">Morelos</option>
+                      <option value="Nayarit">Nayarit</option>
+                      <option value="Nuevo Leon">Nuevo Leon</option>
+                      <option value="Oaxaca">Oaxaca</option>
+                      <option value="Puebla">Puebla</option>
+                      <option value="Queretaro">Queretaro</option>
+                      <option value="Quintana Roo">Quintana Roo</option>
+                      <option value="San Luis Potosi">San Luis Potosi</option>
+                      <option value="Sinaloa">Sinaloa</option>
+                      <option value="Sonora">Sonora</option>
+                      <option value="Tabasco">Tabasco</option>
+                      <option value="Tamaulipas">Tamaulipas</option>
+                      <option value="Tlaxcala">Tlaxcala</option>
+                      <option value="Veracruz">Veracruz</option>
+                      <option value="Yucatan">Yucatan</option>
+                      <option value="Zacatecas">Zacatecas</option>
+                    </select>
+                  </div>
+              </div>
+              <h3>DATOS DE LA MADRE</h3>
+              <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label >MADRE</label>
+                    <input type="text" class="form-control" id="MADRE" name="MADRE" placeholder="Nombre de la madre del alumno">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label >RFC</label>
+                    <input type="text" class="form-control" id="RFC_MADRE" name="RFC_MADRE" placeholder="RFC de la madre">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label >PROFESION/OCUPACION</label>
+                    <input type="text" class="form-control" id="OCUP_MADRE" name="OCUP_MADRE" placeholder="Profesion de la madre del alumno">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label >EMPRESA/LUGAR DE TRABAJO</label>
+                    <input type="text" class="form-control" id="EMPRESA_MAD" name="EMPRESA_MAD" placeholder="Empresa de trabajo de la madre del alumno">
+                  </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label >DOMICILIO DE TRABAJO</label>
+                    <input type="text" class="form-control" id="DOM_TRAB_MAD" name="DOM_TRAB_MAD" placeholder="Domicilio de la empresa o lugar de trabajo">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label >TELEFONO DE TRABAJO</label>
+                    <input type="text" class="form-control" id="TEL_TRAB_M" name="TEL_TRAB_M" placeholder="Telefono de la madre">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label >CELULAR</label>
+                    <input type="text" class="form-control" id="CEL_MADRE" name="CEL_MADRE" placeholder="Celular de la madre">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label >CIUDAD Y ESTADO</label>
+                    <input type="text" class="form-control" id="CD_MADRE" name="CD_MADRE" placeholder="Ciudad">
+                    <select class="form-control" name="EDO_MADRE" id="EDO_MADRE">
+                      <option value="" disabled selected>Estado</option>
+                      <option value="Aguascalientes">Aguascalientes</option>
+                      <option value="Baja California">Baja California</option>
+                      <option value="Baja California Sur">Baja California Sur</option>
+                      <option value="Campeche">Campeche</option>
+                      <option value="Coahulia">Coahulia</option>
+                      <option value="Colima">Colima</option>
+                      <option value="Chiapas">Chiapas</option>
+                      <option value="Chihuahua">Chihuahua</option>
+                      <option value="Ciudad de Mexico">Ciudad de Mexico</option>
+                      <option value="Durango">Durango</option>
+                      <option value="Guanajuato">Guanajuato</option>
+                      <option value="Guerrero">Guerrero</option>
+                      <option value="Hidalgo">Hidalgo</option>
+                      <option value="Jalisco">Jalisco</option>
+                      <option value="Estado de Mexico">Estado de Mexico</option>
+                      <option value="Michoacan">Michoacan</option>
+                      <option value="Morelos">Morelos</option>
+                      <option value="Nayarit">Nayarit</option>
+                      <option value="Nuevo Leon">Nuevo Leon</option>
+                      <option value="Oaxaca">Oaxaca</option>
+                      <option value="Puebla">Puebla</option>
+                      <option value="Queretaro">Queretaro</option>
+                      <option value="Quintana Roo">Quintana Roo</option>
+                      <option value="San Luis Potosi">San Luis Potosi</option>
+                      <option value="Sinaloa">Sinaloa</option>
+                      <option value="Sonora">Sonora</option>
+                      <option value="Tabasco">Tabasco</option>
+                      <option value="Tamaulipas">Tamaulipas</option>
+                      <option value="Tlaxcala">Tlaxcala</option>
+                      <option value="Veracruz">Veracruz</option>
+                      <option value="Yucatan">Yucatan</option>
+                      <option value="Zacatecas">Zacatecas</option>
+                    </select>
+                  </div>
+              </div>
+              <h3>DATOS DE FACTURACION</h3>
+              <div class="form-row">
+                <div class="form-group col-md-3">
+                  <label>RAZON</label>
+                  <input type="text" class="form-control" id="RAZON" name="RAZON" placeholder="Razon de la factura">
+                </div>
+                <div class="form-group col-md-3">
+                  <label>A QUIEN FACTURAR</label>
+                  <<select name="FACT_A" id="FACT_A" class="form-control">
+                    <option value="" disabled selected>Seleccione...</option>
+                    <option value="0">ALUMNO</option>
+                    <option value="1">PAPA</option>
+                    <option value="2">MAMA</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-3">
+                    <label >RFC</label>
+                    <input type="text" class="form-control" id="RFC_FACT" name="RFC_FACT" placeholder="numero de RFC">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label>COLONIA</label>
+                    <input type="text" class="form-control" id="MAD_COLONIA" name="MAD_COLONIA" placeholder="Colonia para facturar">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label >CALLE</label>
+                    <input type="text" class="form-control" id="MAD_CALLE" name="MAD_CALLE" placeholder="Calle para facturar">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label >NUMERO EXTERIOR</label>
+                    <input type="text" class="form-control" id="MAD_NUMEXTERIOR" name="MAD_NUMEXTERIOR" placeholder="Numero exterior para facturar">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label >NUMERO INTERIOR</label>
+                    <input type="text" class="form-control" id="MAD_NUMINTERIOR" name="MAD_NUMINTERIOR" placeholder="Numero interior para facturar">
+                  </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label >CODIGO POSTAL</label>
+                    <input type="text" class="form-control" id="MAD_CODPOST" name="MAD_CODPOST" placeholder="numero de codigo postal para facturar">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label >CIUDAD</label>
+                    <input type="text" class="form-control" id="MAD_CIUDAD" name="MAD_CIUDAD" placeholder="Ciudad para facturar">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label >MUNICIPIO</label>
+                    <input type="text" class="form-control" id="MAD_MUNICIPIO" name="MAD_MUNICIPIO" placeholder="Municipio para facturar">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label >ESTADO</label>
+                    <select class="form-control" name="MAD_ESTADO" id="MAD_ESTADO">
+                      <option value="" disabled selected>Estado</option>
+                      <option value="Aguascalientes">Aguascalientes</option>
+                      <option value="Baja California">Baja California</option>
+                      <option value="Baja California Sur">Baja California Sur</option>
+                      <option value="Campeche">Campeche</option>
+                      <option value="Coahulia">Coahulia</option>
+                      <option value="Colima">Colima</option>
+                      <option value="Chiapas">Chiapas</option>
+                      <option value="Chihuahua">Chihuahua</option>
+                      <option value="Ciudad de Mexico">Ciudad de Mexico</option>
+                      <option value="Durango">Durango</option>
+                      <option value="Guanajuato">Guanajuato</option>
+                      <option value="Guerrero">Guerrero</option>
+                      <option value="Hidalgo">Hidalgo</option>
+                      <option value="Jalisco">Jalisco</option>
+                      <option value="Estado de Mexico">Estado de Mexico</option>
+                      <option value="Michoacan">Michoacan</option>
+                      <option value="Morelos">Morelos</option>
+                      <option value="Nayarit">Nayarit</option>
+                      <option value="Nuevo Leon">Nuevo Leon</option>
+                      <option value="Oaxaca">Oaxaca</option>
+                      <option value="Puebla">Puebla</option>
+                      <option value="Queretaro">Queretaro</option>
+                      <option value="Quintana Roo">Quintana Roo</option>
+                      <option value="San Luis Potosi">San Luis Potosi</option>
+                      <option value="Sinaloa">Sinaloa</option>
+                      <option value="Sonora">Sonora</option>
+                      <option value="Tabasco">Tabasco</option>
+                      <option value="Tamaulipas">Tamaulipas</option>
+                      <option value="Tlaxcala">Tlaxcala</option>
+                      <option value="Veracruz">Veracruz</option>
+                      <option value="Yucatan">Yucatan</option>
+                      <option value="Zacatecas">Zacatecas</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label >PAIS</label>
+                    <input type="text" class="form-control" id="MAD_PAIS" name="MAD_PAIS" placeholder="Pais">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label >EMAIL</label>
+                    <input type="text" class="form-control" id="MAD_EMAIL" name="MAD_EMAIL" placeholder="Email de la factura">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label >FECHA DE CAPTURA</label>
+                    <input type="date" class="form-control" id="FECHA_CAPT" name="FECHA_CAPT">
+                  </div>
+              </div>
+              <h3>Cosas que ya no se usan</h3>
+              <div class="form-row">
+                <div class="form-group col-md-3">
+                  <label>SECCION_M</label>
+                  <input type="text" name="SECCION_M" id="SECCION_M">
+                </div>
+                <div class="form-group col-md-3">
+                  <label>NOMBRE_P</label>
+                  <input type="text" name="NOMBRE_P" id="NOMBRE_P">
+                </div>
+                <div class="form-group col-md-3">
+                  <label>GRADO_M</label>
+                  <input type="text" name="GRADO_M" id="GRADO_M">
+                </div>
+              </div>
+        <div class="row">
+            <div class="col">
+                <a class="btn btn-danger" href="/alumnos">Regresar al menu de Alumnos</a>
+            </div>
+            <div class="col">
+                <button type="submit" class="btn btn-success">Agregar Nuevo Alumno</button>
+            </div>
+        </div>
+    </form>
+  </div>
+</body>
+</html>

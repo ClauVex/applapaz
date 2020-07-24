@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  {{style('css/view.css')}}
+    <link rel="stylesheet" href="https://drive.google.com/uc?authuser=0&id=1w-OStGxF1oCWETeVHDeBXtJV7-iWoR4t&export=download" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div>
+        <form action="/alumnos/editar/{{alumno.id}}" method="POST">
+            <h1 class="mt-4 mb-3">Matricula: {{alumno.MATRICULA}}
+                <small>{{alumno.NOMBRE_P}}</small>
+            </h1>
+            <div class="card mb-4">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-lg-2">
+                      <a href="#">
+                        <img class="img-fluid rounded" id="imageStudent" src="/css/images/placeholder1.jpg">
+                      </a>
+                      <div>
+                        <a class="btn btn-primary" href="/alumnos">Regresar al menu de Alumnos</a>
+                      </div>
+                    </div>
+                    <div class="col-lg-10" id="contenido">
+                      <div id="myCarousel" class="carousel slide" data-interval="false">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                          <li data-target="#myCarousel" data-slide-to="1"></li>
+                          <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" style=" width:100%; height: 600px !important;">
+                          <!--Primera Seccion-->
+                          <div class="item active">
+                            <h2>Datos del Alumnos</h2>
+                            <div class="col-lg-4">
+                              <table>
+                                <tbody>
+                                  <td colspan="1">
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Nombres</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.NOMBRE_P}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Apelldios</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.AP_PATERNO}} {{alumno.AP_MATERNO}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Fecha de nacimiento</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.FEC_NACIM}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Seccion</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.SECCION}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Grado</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.GRADO}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Grupo</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.GRUPO}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Ciclo</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.CICLO}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Alergia</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.ALERGIA}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">CURP</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.CURP}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Sexo</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.SEXO}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Tipo de Sangre</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.TIPO_SANGRE}}">
+                                    </div>
+                                  </td>
+                                </tbody>
+                              </table>
+                            </div>
+                            <div class="col-lg-4">
+                              <table>
+                                <tbody>
+                                  <td colspan="1">
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Lugar de nacimiento</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.LUGAR_NACIM}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Domicilio</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.DIRECCION}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Codigo postal</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.CP}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Ciudad</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.CIUDAD}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Estado</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.ESTADO}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Telefono Casa</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.TEL_FAX}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Telefono Emergencia</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.EMERGENCIA}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Estatus Alumno</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.STAT_ALUM}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Estado Civil Padres</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.EDO_CIVIL}}">
+                                    </div>
+                                  </td>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+
+                          <!--Segunda Seccion-->
+                          <div class="item">
+                            <div class="col-lg-4">
+                              <h2>Datos del Padre</h2>
+                              <table>
+                                <tbody>
+                                  <td colspan="1">
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Padre</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.PADRE}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Rfc Padre</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.RFC_PADRE}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Profesion</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.OCUP_PADRE}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Empresa</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.EMPRESA_PAD}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Direccion Trabajo</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.DOM_TRAB_PAD}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Telefono Trabajo</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.TEL_TRAB_P}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Celular</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.CEL_PADRE}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Ciudad</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.CD_PADRE}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Estado</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.EDO_PADRE}}">
+                                    </div>
+                                  </td>
+                                </tbody>
+                              </table>
+                            </div>
+                            <div class="col-lg-4">
+                              <h2>Datos dela Madre</h2>
+                              <table>
+                                <tbody>
+                                  <td colspan="1">
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Madre</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.MADRE}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Rfc Madre</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.RFC_MADRE}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Profesion</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.OCUP_MADRE}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Empresa</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.EMPRESA_MAD}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Direccion Trabajo</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.DOM_TRAB_MAD}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Telefono Trabajo</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.TEL_TRAB_M}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Celular</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.CEL_MADRE}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Ciudad</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.CD_MADRE}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Estado</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.EDO_MADRE}}">
+                                    </div>
+                                  </td>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+
+                          <div class="item">
+                            <div class="col-lg-4">
+                              <h2>Datos de Facturacion</h2>
+                              <table>
+                                <tbody>
+                                  <td colspan="1">
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Razon</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.RAZON}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Facturardo</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.FACT_A}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">RFC</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.RFC_FACT}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Colonia</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.MAD_COLONIA}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Calle</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.MAD_CALLE}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Numero Exterior</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.MAD_NUMEXTERIOR}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Numero Interior</label>
+                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.MAD_NUMINTERIOR}}">
+                                    </div>
+                                  </td>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev" style="background:none;">
+                          <span class="glyphicon glyphicon-chevron-left"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next" style="background:none;">
+                          <span class="glyphicon glyphicon-chevron-right" ></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer text-muted">
+                  Creado en {{alumno.FECHA_CAPT}}
+                </div>
+              </div>
+        </form>
+    </div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</html>
