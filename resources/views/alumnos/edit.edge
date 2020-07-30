@@ -24,7 +24,8 @@
                         <img class="img-fluid rounded" id="imageStudent" src="/css/images/placeholder1.jpg">
                       </a>
                       <div>
-                        <a class="btn btn-primary" href="/alumnos">Regresar al menu de Alumnos</a>
+                        <a class="btn btn-danger" href="/alumnos">Regresar al menu</a>
+                        <button type="submit" class="btn btn-primary"> Guardar Cambios </button>
                       </div>
                     </div>
                     <div class="col-lg-10" id="contenido">
@@ -37,7 +38,7 @@
                         </ol>
 
                         <!-- Wrapper for slides -->
-                        <div class="carousel-inner" style=" width:100%; height: 600px !important;">
+                        <div class="carousel-inner" style=" width:100%; height: 700px !important;">
                           <!--Primera Seccion-->
                           <div class="item active">
                             <h2>Datos del Alumnos</h2>
@@ -47,47 +48,70 @@
                                   <td colspan="1">
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Nombres</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.NOMBRE_P}}">
+                                      <input class="form-control col-md-8" type="text" id="NOMBRE_P" name="NOMBRE_P" value="{{alumno.NOMBRE_P}}">
                                     </div>
                                     <div class="form-group form-inline">
-                                      <label class="col-md-3">Apelldios</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.AP_PATERNO}} {{alumno.AP_MATERNO}}">
+                                      <label class="col-md-3">Apellido Paterno</label>
+                                      <input class="form-control col-md-8" type="text" id="AP_PATERNO" name="AP_PATERNO"  value="{{alumno.AP_PATERNO}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Apellido Materno</label>
+                                      <input class="form-control col-md-8" type="text" id="AP_MATERNO" name="AP_MATERNO" value="{{alumno.AP_MATERNO}}">
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Fecha de nacimiento</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.FEC_NACIM}}">
+                                      <input type="date" class="form-control col-md-8" id="FEC_NACIM" name="FEC_NACIM" value="{{alumno.FEC_NACIM}}">
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Seccion</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.SECCION}}">
+                                      <select class="form-control col-md-8" name="SECCION" id="SECCION">
+                                        <option value="" disabled selected>{{alumno.SECCION}}</option>
+                                        <option value="M">Maternal</option>
+                                        <option value="K">Kinder</option>
+                                        <option value="P">Primaria</option>
+                                        <option value="S">Secundaria</option>
+                                        <option value="B">Bachillerato</option>
+                                      </select>
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Grado</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.GRADO}}">
+                                      <input class="form-control col-md-8" type="text" id="GRADO" name="GRADO"  value="{{alumno.GRADO}}">
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Grupo</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.GRUPO}}">
+                                      <input class="form-control col-md-8" type="text" id="GRUPO" name="GRUPO" value="{{alumno.GRUPO}}">
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Ciclo</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.CICLO}}">
+                                      <input class="form-control col-md-8" type="text" id="CICLO" name="CICLO"  value="{{alumno.CICLO}}">
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Alergia</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.ALERGIA}}">
+                                      <input class="form-control col-md-8" type="text" id="ALERGIA" name="ALERGIA"  value="{{alumno.ALERGIA}}">
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">CURP</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.CURP}}">
+                                      <input class="form-control col-md-8" type="text" id="CURP" name="CURP"  value="{{alumno.CURP}}">
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Sexo</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.SEXO}}">
+                                      <select name="SEXO" id="SEXO" class="form-control col-md-8">
+                                        <option value="" disabled selected>{{alumno.SEXO}}</option>
+                                        <option value="H">Hombre</option>
+                                        <option value="M">Mujer</option>
+                                      </select>
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Tipo de Sangre</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.TIPO_SANGRE}}">
+                                      <select class="form-control col-md-8" name="TIPO_SANGRE" id="TIPO_SANGRE">
+                                        <option value="" disabled selected>{{alumno.TIPO_SANGRE}}</option>
+                                        <option value="O+">O+</option>
+                                        <option value="O-">O-</option>
+                                        <option value="A+">A+</option>
+                                        <option value="A-">A-</option>
+                                        <option value="AB+">AB+</option>
+                                        <option value="AB-">AB-</option>
+                                      </select>
                                     </div>
                                   </td>
                                 </tbody>
@@ -99,39 +123,86 @@
                                   <td colspan="1">
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Lugar de nacimiento</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.LUGAR_NACIM}}">
+                                      <input class="form-control col-md-8" type="text" id="LUGAR_NACIM" name="LUGAR_NACIM" value="{{alumno.LUGAR_NACIM}}">
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Domicilio</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.DIRECCION}}">
+                                      <input class="form-control col-md-8" type="text" id="DIRECCION" name="DIRECCION" value="{{alumno.DIRECCION}}">
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Codigo postal</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.CP}}">
+                                      <input class="form-control col-md-8" type="text" id="CP" name="CP" value="{{alumno.CP}}">
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Ciudad</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.CIUDAD}}">
+                                      <input class="form-control col-md-8" type="text" id="CIUDAD" name="CIUDAD" value="{{alumno.CIUDAD}}">
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Estado</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.ESTADO}}">
+                                      <select class="form-control col-md-8" name="ESTADO" id="ESTADO">
+                                        <option value="" disabled selected>{{alumno.ESTADO}}</option>
+                                        <option value="Aguascalientes">Aguascalientes</option>
+                                        <option value="Baja California">Baja California</option>
+                                        <option value="Baja California Sur">Baja California Sur</option>
+                                        <option value="Campeche">Campeche</option>
+                                        <option value="Coahulia">Coahulia</option>
+                                        <option value="Colima">Colima</option>
+                                        <option value="Chiapas">Chiapas</option>
+                                        <option value="Chihuahua">Chihuahua</option>
+                                        <option value="Ciudad de Mexico">Ciudad de Mexico</option>
+                                        <option value="Durango">Durango</option>
+                                        <option value="Guanajuato">Guanajuato</option>
+                                        <option value="Guerrero">Guerrero</option>
+                                        <option value="Hidalgo">Hidalgo</option>
+                                        <option value="Jalisco">Jalisco</option>
+                                        <option value="Estado de Mexico">Estado de Mexico</option>
+                                        <option value="Michoacan">Michoacan</option>
+                                        <option value="Morelos">Morelos</option>
+                                        <option value="Nayarit">Nayarit</option>
+                                        <option value="Nuevo Leon">Nuevo Leon</option>
+                                        <option value="Oaxaca">Oaxaca</option>
+                                        <option value="Puebla">Puebla</option>
+                                        <option value="Queretaro">Queretaro</option>
+                                        <option value="Quintana Roo">Quintana Roo</option>
+                                        <option value="San Luis Potosi">San Luis Potosi</option>
+                                        <option value="Sinaloa">Sinaloa</option>
+                                        <option value="Sonora">Sonora</option>
+                                        <option value="Tabasco">Tabasco</option>
+                                        <option value="Tamaulipas">Tamaulipas</option>
+                                        <option value="Tlaxcala">Tlaxcala</option>
+                                        <option value="Veracruz">Veracruz</option>
+                                        <option value="Yucatan">Yucatan</option>
+                                        <option value="Zacatecas">Zacatecas</option>
+                                      </select>
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Telefono Casa</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.TEL_FAX}}">
+                                      <input class="form-control col-md-8" type="text" id="TEL_FAX" name="TEL_FAX"  value="{{alumno.TEL_FAX}}">
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Telefono Emergencia</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.EMERGENCIA}}">
+                                      <input class="form-control col-md-8" type="text" id="EMERGENCIA" name="EMERGENCIA" value="{{alumno.EMERGENCIA}}">
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Estatus Alumno</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.STAT_ALUM}}">
+                                      <select class="form-control col-md-8" name="STAT_ALUM" id="STAT_ALUM">
+                                        <option value="" disabled selected>{{alumno.STAT_ALUM}}</option>
+                                        <option value="A">ACTIVO</option>
+                                        <option value="S">SUSPENDIDO</option>
+                                        <option value="T">TEMPORAL</option>
+                                      </select>
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Estado Civil Padres</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.EDO_CIVIL}}">
+                                      <input class="form-control col-md-8" type="text" id="EDO_CIVIL" name="EDO_CIVIL"  value="{{alumno.EDO_CIVIL}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Estatus Beca</label>
+                                      <select class="form-control col-md-8" name="STAT_BECA" id="STAT_BECA">
+                                        <option value="" disabled selected>{{alumno.STAT_BECA}}</option>
+                                        <option value="S">SI</option>
+                                        <option value="N">NO</option>
+                                      </select>
                                     </div>
                                   </td>
                                 </tbody>
@@ -148,39 +219,73 @@
                                   <td colspan="1">
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Padre</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.PADRE}}">
+                                      <input class="form-control col-md-8" type="text" id="PADRE" name="PADRE"  value="{{alumno.PADRE}}">
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Rfc Padre</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.RFC_PADRE}}">
+                                      <input class="form-control col-md-8" type="text" id="RFC_PADRE" name="RFC_PADRE"  value="{{alumno.RFC_PADRE}}">
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Profesion</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.OCUP_PADRE}}">
+                                      <input class="form-control col-md-8" type="text" id="OCUP_PADRE" name="OCUP_PADRE"  value="{{alumno.OCUP_PADRE}}">
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Empresa</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.EMPRESA_PAD}}">
+                                      <input class="form-control col-md-8" type="text" id="EMPRESA_PAD" name="EMPRESA_PAD" value="{{alumno.EMPRESA_PAD}}">
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Direccion Trabajo</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.DOM_TRAB_PAD}}">
+                                      <input class="form-control col-md-8" type="text"  id="DOM_TRAB_PAD" name="DOM_TRAB_PAD" value="{{alumno.DOM_TRAB_PAD}}">
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Telefono Trabajo</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.TEL_TRAB_P}}">
+                                      <input class="form-control col-md-8" type="text" id="TEL_TRAB_P" name="TEL_TRAB_P" value="{{alumno.TEL_TRAB_P}}">
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Celular</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.CEL_PADRE}}">
+                                      <input class="form-control col-md-8" type="text" id="CEL_PADRE" name="CEL_PADRE" value="{{alumno.CEL_PADRE}}">
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Ciudad</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.CD_PADRE}}">
+                                      <input class="form-control col-md-8" type="text" id="CD_PADRE" name="CD_PADRE" value="{{alumno.CD_PADRE}}">
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Estado</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.EDO_PADRE}}">
+                                      <select class="form-control col-md-8" name="EDO_PADRE" id="EDO_PADRE">
+                                        <option value="" disabled selected>{{alumno.EDO_PADRE}}</option>
+                                        <option value="Aguascalientes">Aguascalientes</option>
+                                        <option value="Baja California">Baja California</option>
+                                        <option value="Baja California Sur">Baja California Sur</option>
+                                        <option value="Campeche">Campeche</option>
+                                        <option value="Coahulia">Coahulia</option>
+                                        <option value="Colima">Colima</option>
+                                        <option value="Chiapas">Chiapas</option>
+                                        <option value="Chihuahua">Chihuahua</option>
+                                        <option value="Ciudad de Mexico">Ciudad de Mexico</option>
+                                        <option value="Durango">Durango</option>
+                                        <option value="Guanajuato">Guanajuato</option>
+                                        <option value="Guerrero">Guerrero</option>
+                                        <option value="Hidalgo">Hidalgo</option>
+                                        <option value="Jalisco">Jalisco</option>
+                                        <option value="Estado de Mexico">Estado de Mexico</option>
+                                        <option value="Michoacan">Michoacan</option>
+                                        <option value="Morelos">Morelos</option>
+                                        <option value="Nayarit">Nayarit</option>
+                                        <option value="Nuevo Leon">Nuevo Leon</option>
+                                        <option value="Oaxaca">Oaxaca</option>
+                                        <option value="Puebla">Puebla</option>
+                                        <option value="Queretaro">Queretaro</option>
+                                        <option value="Quintana Roo">Quintana Roo</option>
+                                        <option value="San Luis Potosi">San Luis Potosi</option>
+                                        <option value="Sinaloa">Sinaloa</option>
+                                        <option value="Sonora">Sonora</option>
+                                        <option value="Tabasco">Tabasco</option>
+                                        <option value="Tamaulipas">Tamaulipas</option>
+                                        <option value="Tlaxcala">Tlaxcala</option>
+                                        <option value="Veracruz">Veracruz</option>
+                                        <option value="Yucatan">Yucatan</option>
+                                        <option value="Zacatecas">Zacatecas</option>
+                                      </select>
                                     </div>
                                   </td>
                                 </tbody>
@@ -193,39 +298,73 @@
                                   <td colspan="1">
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Madre</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.MADRE}}">
+                                      <input class="form-control col-md-8" type="text" id="MADRE" name="MADRE" value="{{alumno.MADRE}}">
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Rfc Madre</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.RFC_MADRE}}">
+                                      <input class="form-control col-md-8" type="text" id="RFC_MADRE" name="RFC_MADRE" value="{{alumno.RFC_MADRE}}">
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Profesion</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.OCUP_MADRE}}">
+                                      <input class="form-control col-md-8" type="text" id="OCUP_MADRE" name="OCUP_MADRE" value="{{alumno.OCUP_MADRE}}">
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Empresa</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.EMPRESA_MAD}}">
+                                      <input class="form-control col-md-8" type="text" id="EMPRESA_MAD" name="EMPRESA_MAD" value="{{alumno.EMPRESA_MAD}}">
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Direccion Trabajo</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.DOM_TRAB_MAD}}">
+                                      <input class="form-control col-md-8" type="text" id="DOM_TRAB_MAD" name="DOM_TRAB_MAD" value="{{alumno.DOM_TRAB_MAD}}">
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Telefono Trabajo</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.TEL_TRAB_M}}">
+                                      <input class="form-control col-md-8" type="text" id="TEL_TRAB_M" name="TEL_TRAB_M" value="{{alumno.TEL_TRAB_M}}">
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Celular</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.CEL_MADRE}}">
+                                      <input class="form-control col-md-8" type="text" id="CEL_MADRE" name="CEL_MADRE" value="{{alumno.CEL_MADRE}}">
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Ciudad</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.CD_MADRE}}">
+                                      <input class="form-control col-md-8" type="text" id="CD_MADRE" name="CD_MADRE" value="{{alumno.CD_MADRE}}">
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Estado</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.EDO_MADRE}}">
+                                      <select class="form-control col-md-8" name="EDO_MADRE" id="EDO_MADRE">
+                                        <option value="" disabled selected>{{alumno.EDO_MADRE}}</option>
+                                        <option value="Aguascalientes">Aguascalientes</option>
+                                        <option value="Baja California">Baja California</option>
+                                        <option value="Baja California Sur">Baja California Sur</option>
+                                        <option value="Campeche">Campeche</option>
+                                        <option value="Coahulia">Coahulia</option>
+                                        <option value="Colima">Colima</option>
+                                        <option value="Chiapas">Chiapas</option>
+                                        <option value="Chihuahua">Chihuahua</option>
+                                        <option value="Ciudad de Mexico">Ciudad de Mexico</option>
+                                        <option value="Durango">Durango</option>
+                                        <option value="Guanajuato">Guanajuato</option>
+                                        <option value="Guerrero">Guerrero</option>
+                                        <option value="Hidalgo">Hidalgo</option>
+                                        <option value="Jalisco">Jalisco</option>
+                                        <option value="Estado de Mexico">Estado de Mexico</option>
+                                        <option value="Michoacan">Michoacan</option>
+                                        <option value="Morelos">Morelos</option>
+                                        <option value="Nayarit">Nayarit</option>
+                                        <option value="Nuevo Leon">Nuevo Leon</option>
+                                        <option value="Oaxaca">Oaxaca</option>
+                                        <option value="Puebla">Puebla</option>
+                                        <option value="Queretaro">Queretaro</option>
+                                        <option value="Quintana Roo">Quintana Roo</option>
+                                        <option value="San Luis Potosi">San Luis Potosi</option>
+                                        <option value="Sinaloa">Sinaloa</option>
+                                        <option value="Sonora">Sonora</option>
+                                        <option value="Tabasco">Tabasco</option>
+                                        <option value="Tamaulipas">Tamaulipas</option>
+                                        <option value="Tlaxcala">Tlaxcala</option>
+                                        <option value="Veracruz">Veracruz</option>
+                                        <option value="Yucatan">Yucatan</option>
+                                        <option value="Zacatecas">Zacatecas</option>
+                                      </select>
                                     </div>
                                   </td>
                                 </tbody>
@@ -234,38 +373,113 @@
                           </div>
 
                           <div class="item">
+                            <h2>Datos de Facturacion</h2>
                             <div class="col-lg-4">
-                              <h2>Datos de Facturacion</h2>
                               <table>
                                 <tbody>
                                   <td colspan="1">
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Razon</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.RAZON}}">
+                                      <input class="form-control col-md-8" type="text" id="RAZON" name="RAZON" value="{{alumno.RAZON}}">
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Facturardo</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.FACT_A}}">
+                                      <select name="FACT_A" id="FACT_A" class="form-control col-md-8">
+                                        <option value="" disabled selected>{{alumno.FACT_A}}</option>
+                                        <option value="0">ALUMNO</option>
+                                        <option value="1">PAPA</option>
+                                        <option value="2">MAMA</option>
+                                      </select>
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">RFC</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.RFC_FACT}}">
+                                      <input class="form-control col-md-8" type="text" id="RFC_FACT" name="RFC_FACT" value="{{alumno.RFC_FACT}}">
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Colonia</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.MAD_COLONIA}}">
+                                      <input class="form-control col-md-8" type="text" id="MAD_COLONIA" name="MAD_COLONIA" value="{{alumno.MAD_COLONIA}}">
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Calle</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.MAD_CALLE}}">
+                                      <input class="form-control col-md-8" type="text"  id="MAD_CALLE" name="MAD_CALLE" value="{{alumno.MAD_CALLE}}">
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Numero Exterior</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.MAD_NUMEXTERIOR}}">
+                                      <input class="form-control col-md-8" type="text" id="MAD_NUMEXTERIOR" name="MAD_NUMEXTERIOR" value="{{alumno.MAD_NUMEXTERIOR}}">
                                     </div>
                                     <div class="form-group form-inline">
                                       <label class="col-md-3">Numero Interior</label>
-                                      <input class="form-control col-md-8" type="text" disabled="false" value="{{alumno.MAD_NUMINTERIOR}}">
+                                      <input class="form-control col-md-8" type="text" id="MAD_NUMINTERIOR" name="MAD_NUMINTERIOR" value="{{alumno.MAD_NUMINTERIOR}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Codigo Postal</label>
+                                      <input class="form-control col-md-8" type="text" id="MAD_CODPOST" name="MAD_CODPOST" value="{{alumno.MAD_CODPOST}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Ciudad</label>
+                                      <input class="form-control col-md-8" type="text" id="MAD_CIUDAD" name="MAD_CIUDAD" value="{{alumno.MAD_CIUDAD}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Municipio</label>
+                                      <input class="form-control col-md-8" type="text" id="MAD_MUNICIPIO" name="MAD_MUNICIPIO" value="{{alumno.MAD_MUNICIPIO}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Estado</label>
+                                      <select class="form-control col-md-8" name="MAD_ESTADO" id="MAD_ESTADO">
+                                        <option value="" disabled selected>{{alumno.MAD_ESTADO}}</option>
+                                        <option value="Aguascalientes">Aguascalientes</option>
+                                        <option value="Baja California">Baja California</option>
+                                        <option value="Baja California Sur">Baja California Sur</option>
+                                        <option value="Campeche">Campeche</option>
+                                        <option value="Coahulia">Coahulia</option>
+                                        <option value="Colima">Colima</option>
+                                        <option value="Chiapas">Chiapas</option>
+                                        <option value="Chihuahua">Chihuahua</option>
+                                        <option value="Ciudad de Mexico">Ciudad de Mexico</option>
+                                        <option value="Durango">Durango</option>
+                                        <option value="Guanajuato">Guanajuato</option>
+                                        <option value="Guerrero">Guerrero</option>
+                                        <option value="Hidalgo">Hidalgo</option>
+                                        <option value="Jalisco">Jalisco</option>
+                                        <option value="Estado de Mexico">Estado de Mexico</option>
+                                        <option value="Michoacan">Michoacan</option>
+                                        <option value="Morelos">Morelos</option>
+                                        <option value="Nayarit">Nayarit</option>
+                                        <option value="Nuevo Leon">Nuevo Leon</option>
+                                        <option value="Oaxaca">Oaxaca</option>
+                                        <option value="Puebla">Puebla</option>
+                                        <option value="Queretaro">Queretaro</option>
+                                        <option value="Quintana Roo">Quintana Roo</option>
+                                        <option value="San Luis Potosi">San Luis Potosi</option>
+                                        <option value="Sinaloa">Sinaloa</option>
+                                        <option value="Sonora">Sonora</option>
+                                        <option value="Tabasco">Tabasco</option>
+                                        <option value="Tamaulipas">Tamaulipas</option>
+                                        <option value="Tlaxcala">Tlaxcala</option>
+                                        <option value="Veracruz">Veracruz</option>
+                                        <option value="Yucatan">Yucatan</option>
+                                        <option value="Zacatecas">Zacatecas</option>
+                                      </select>
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Pais</label>
+                                      <input class="form-control col-md-8" type="text" id="MAD_PAIS" name="MAD_PAIS" value="{{alumno.MAD_PAIS}}">
+                                    </div>
+                                  </td>
+                                </tbody>
+                              </table>
+                            </div>
+                            <div class="col-lg-4">
+                              <table>
+                                <tbody>
+                                  <td colspan="1">
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Email</label>
+                                      <input class="form-control col-md-8" type="text" id="MAD_EMAIL" name="MAD_EMAIL" value="{{alumno.MAD_EMAIL}}">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                      <label class="col-md-3">Fecha Captura</label>
+                                      <input type="date" class="form-control col-md-8" id="FECHA_CAPT" name="FECHA_CAPT" value="{{alumno.FECHA_CAPT}}">
                                     </div>
                                   </td>
                                 </tbody>
@@ -287,7 +501,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="card-footer text-muted">
+                <div class="card-footer">
                   Creado en {{alumno.FECHA_CAPT}}
                 </div>
               </div>
