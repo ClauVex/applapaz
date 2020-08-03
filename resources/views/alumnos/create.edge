@@ -31,11 +31,11 @@
         </div>-->
         <div class="form-row">
             <div class="form-group col-md-3">
-              <label>MATRICULA DEL ALUMNO</label>
+              <label>MATRICULA</label>
               <input type="text" class="form-control" id="MATRICULA" name="MATRICULA" placeholder="Matricula del alumno">
             </div>
             <div class="form-group col-md-3">
-              <label>NOMBRE(S) DEL ALUMNO</label>
+              <label>NOMBRE(S)</label>
               <input type="text" class="form-control" id="NOMBRE" name="NOMBRE" placeholder="Nombre o nombres del alumno">
             </div>
             <div class="form-group col-md-3">
@@ -49,7 +49,7 @@
           </div>
           <div class="form-row">
             <div class="form-group col-md-2">
-                <label>SECCION</label>
+                <label>SECCIÓN</label>
                 <select class="form-control" name="SECCION" id="SECCION">
                   <option value="" disabled selected>Seccion del alumno</option>
                   <option value="M">Maternal</option>
@@ -78,11 +78,11 @@
           </div>
           <div class="form-row">
               <div class="form-group col-md-3">
-                <label >CURP DEL ALUMNO</label>
+                <label >CURP</label>
                 <input type="text" class="form-control" id="CURP" name="CURP" placeholder="C.U.R.P del alumno">
               </div>
               <div class="form-group col-md-3">
-                <label >SEXO DEL ALUMNO</label>
+                <label >SEXO</label>
                 <select name="SEXO" id="SEXO" class="form-control">
                   <option value="" disabled selected>Sexo</option>
                   <option value="H">Hombre</option>
@@ -122,12 +122,6 @@
                 <input type="text" class="form-control" id="CP" name="CP" placeholder="Codigo postal de el domicilio del alumno">
               </div>
               <div class="form-group col-md-3">
-                <label >ESTADO CIVIL PADRES</label>
-                <input type="text" class="form-control" id="EDO_CIVIL" name="EDO_CIVIL" placeholder="Juntos/Separados/...">
-              </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-3">
                 <label >CIUDAD</label>
                 <input type="text" class="form-control" id="CIUDAD" name="CIUDAD" placeholder="Ciudad de residencia">
               </div>
@@ -169,6 +163,8 @@
                   <option value="Zacatecas">Zacatecas</option>
                 </select>
               </div>
+          </div>
+          <div class="form-row">
               <div class="form-group col-md-3">
                 <label >TELEFONO DE CASA</label>
                 <input type="text" class="form-control" id="TEL_FAX" name="TEL_FAX" placeholder="Telefono del domicilio del alumno">
@@ -177,27 +173,37 @@
                 <label >TELEFONO DE EMERGENCIA</label>
                 <input type="text" class="form-control" id="EMERGENCIA" name="EMERGENCIA" placeholder="Telefono de emergencia del alumno">
               </div>
-              <div class="form-group col-md-3">
-                <label>ESTATUS ALUMNO</label>
-                <select class="form-control" name="STAT_ALUM" id="STAT_ALUM">
-                  <option value="" disabled selected>opcion...</option>
-                  <option value="A">ACTIVO</option>
-                  <option value="S">SUSPENDIDO</option>
-                  <option value="T">TEMPORAL</option>
-                </select>
-              </div>
-              <div class="form-group col-md-3">
-                <label>ESTATUS BECA</label>
-                <select class="form-control" name="STAT_BECA" id="STAT_BECA">
-                  <option value="" disabled selected>opcion...</option>
-                  <option value="S">SI</option>
-                  <option value="N">NO</option>
-                </select>
-              </div>
-              <div class="form-group col-md-3">
-                <label>FOTOGRAFIA ALUMNO</label>
-                <input class="form-control" type="text" name="FOTO" id="FOTO" placeholder="ponga el link de la foto aqui.">
-              </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-3">
+              <label >ESTADO CIVIL PADRES</label>
+              <select name="EDO_CIVIL" id="EDO_CIVIL" class="form-control">
+                <option value="" disabled selected>estado civil...</option>
+                <option value="C">JUNTOS</option>
+                <option value="S">SEPARADOS</option>
+              </select>
+            </div>
+            <div class="form-group col-md-3">
+              <label>ESTATUS ALUMNO</label>
+              <select class="form-control" name="STAT_ALUM" id="STAT_ALUM">
+                <option value="" disabled selected>opcion...</option>
+                <option value="A">ACTIVO</option>
+                <option value="S">SUSPENDIDO</option>
+                <option value="T">TEMPORAL</option>
+              </select>
+            </div>
+            <div class="form-group col-md-3">
+              <label>ESTATUS BECA</label>
+              <select class="form-control" name="STAT_BECA" id="STAT_BECA">
+                <option value="" disabled selected>opcion...</option>
+                <option value="S">SI</option>
+                <option value="N">NO</option>
+              </select>
+            </div>
+            <div class="form-group col-md-3">
+              <label>FOTOGRAFIA ALUMNO</label>
+              <input class="form-control" type="text" name="FOTO" id="FOTO" placeholder="ponga el link de la foto aqui.">
+            </div>
           </div>
             <h3>DATOS DEL PADRE</h3>
             <div class="form-row">
@@ -362,22 +368,24 @@
                     <label >RFC</label>
                     <input type="text" class="form-control" id="RFC_FACT" name="RFC_FACT" placeholder="numero de RFC">
                   </div>
-                  <div class="form-group col-md-3">
-                    <label>COLONIA</label>
-                    <input type="text" class="form-control" id="MAD_COLONIA" name="MAD_COLONIA" placeholder="Colonia para facturar">
-                  </div>
-                  <div class="form-group col-md-3">
-                    <label >CALLE</label>
-                    <input type="text" class="form-control" id="MAD_CALLE" name="MAD_CALLE" placeholder="Calle para facturar">
-                  </div>
-                  <div class="form-group col-md-3">
-                    <label >NUMERO EXTERIOR</label>
-                    <input type="text" class="form-control" id="MAD_NUMEXTERIOR" name="MAD_NUMEXTERIOR" placeholder="Numero exterior para facturar">
-                  </div>
-                  <div class="form-group col-md-3">
-                    <label >NUMERO INTERIOR</label>
-                    <input type="text" class="form-control" id="MAD_NUMINTERIOR" name="MAD_NUMINTERIOR" placeholder="Numero interior para facturar">
-                  </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-3">
+                  <label >CALLE</label>
+                  <input type="text" class="form-control" id="MAD_CALLE" name="MAD_CALLE" placeholder="Calle para facturar">
+                </div>
+                <div class="form-group col-md-3">
+                  <label >NUMERO EXTERIOR</label>
+                  <input type="text" class="form-control" id="MAD_NUMEXTERIOR" name="MAD_NUMEXTERIOR" placeholder="Numero exterior para facturar">
+                </div>
+                <div class="form-group col-md-3">
+                  <label >NUMERO INTERIOR</label>
+                  <input type="text" class="form-control" id="MAD_NUMINTERIOR" name="MAD_NUMINTERIOR" placeholder="Numero interior para facturar">
+                </div>
+                <div class="form-group col-md-3">
+                  <label>COLONIA</label>
+                  <input type="text" class="form-control" id="MAD_COLONIA" name="MAD_COLONIA" placeholder="Colonia para facturar">
+                </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-3">
