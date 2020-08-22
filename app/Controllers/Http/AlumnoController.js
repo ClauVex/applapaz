@@ -18,7 +18,10 @@ class AlumnoController {
      * @param {View} ctx.view
      */
     async index({ request, response, view }) {
-        let alumnos = await Alumno.all();
+        /**let alumnos = await Alumno.all();**/
+        let alumnos = await Alumno.query().
+        select('id', 'MATRICULA', 'AP_PATERNO', 'AP_MATERNO', 'NOMBRE_P', 'TIPO_SANGRE', 'FEC_NACIM', 'CICLO', 'SECCION', 'GRADO', 'GRUPO')
+            .from('alumnos').fetch()
         return view.render('alumnos.index', { alumnos: alumnos.rows });
     }
 

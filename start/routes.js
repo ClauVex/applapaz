@@ -1,5 +1,7 @@
 'use strict'
 
+const { route } = require('@adonisjs/framework/src/Route/Manager')
+
 /*
 |--------------------------------------------------------------------------
 | Routes
@@ -24,3 +26,8 @@ Route.post('alumnos/crear', 'AlumnoController.store')
 Route.get('alumnos/editar/:id', 'AlumnoController.edit')
 Route.post('alumnos/editar/:id', 'AlumnoController.update')
 Route.get('alumnos/ver/:id', 'AlumnoController.show')
+
+Route.on('consulta_colegiaturas').render('colegiaturas')
+
+Route.get('info_kardex', 'KardexCicloController.index')
+Route.get('info_kardex/ver', 'KardexCicloController.show')

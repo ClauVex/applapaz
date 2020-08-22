@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Alumnos</title>
+  <title>document</title>
   <style> /*!
     * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/template-overviews/simple-sidebar)
     * Copyright 2013-2019 Start Bootstrap
@@ -95,8 +95,8 @@
         <h1>La Paz</h1>
       </div>
       <div class="list-group list-group-flush">
-        <a href="/alumnos" class="list-group-item list-group-item-action bg-light">ALUMNOS</a>
-        <a href="/consulta_colegiaturas" class="list-group-item list-group-item-action bg-light">COLEGIATURAS</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">ALUMNOS</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">COLEGIATURAS</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -116,58 +116,41 @@
             <li class="nav-item active">
               <a class="nav-link" href="/">HOME <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-              <a href="/alumnos/crear" id="botonCrear" type="button" class="btn btn-primary">CREAR NUEVO ALUMNO</a>
-            </li>
           </ul>
         </div>
       </nav>
       <div class="container-fluid">
           <div class="jumbotron text-center">
-            <h3>ALUMNOS REGISTRADOS</h3>
+            <h3>CONSULTA COLEGIATURAS</h3>
           </div>
-          <div class="table-wrapper-scroll-y my-custom-scrollbar">
-            <div class="table-responsive">
-              <table id="myTable" class="display " cellspacing="0" width="100%">
-                  <thead>
-                      <tr>
-                          <th></th>
-                          <th>ID ALUMNO</th>
-                          <th>MATRICULA</th>
-                          <th>AP_PATERNO</th>
-                          <th>AP_MATERNO</th>
-                          <th>NOMBRE_P</th>
-                          <th>FEC_NACIM</th>
-                          <th>TIPO_SANGRE</th>
-                          <th>CICLO</th>
-                          <th>SECCION</th>
-                          <th>GRADO</th>
-                          <th>GRUPO</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      @each(alumno in alumnos)
-                      <tr>
-                        <td>
-                          <a class="btn btn-warning" href="/alumnos/editar/{{alumno.id}}"><i title="Editar" class="fa fa-edit"></i></a>
-                          <a class="btn btn-info" href="/alumnos/ver/{{alumno.id}}"><i title="Mirar" class="fa fa-eye"></i></a>
-                       </td>
-                        <td title="ID ALUMNO">{{alumno.id}}</td>
-                        <td title="MATRICULA">{{alumno.MATRICULA}}</td>
-                        <td title="AP_PATERNO">{{alumno.AP_PATERNO}}</td>
-                        <td title="AP_MATERNO">{{alumno.AP_MATERNO}}</td>
-                        <td title="NOMBRE_P">{{alumno.NOMBRE_P}}</td>
-                        <td title="FEC_NACIM">{{alumno.FEC_NACIM}}</td>
-                        <td title="TIPO_SANGRE">{{alumno.TIPO_SANGRE}}</td>
-                        <td title="CICLO">{{alumno.CICLO}}</td>
-                        <td title="SECCION">{{alumno.SECCION}}</td>
-                        <td title="GRADO">{{alumno.GRADO}}</td>
-                        <td title="GRUPO">{{alumno.GRUPO}}</td>
-                      </tr>
-                      @endeach
-                  </tbody>
-              </table>
-            </div>
+          <div class="container">
+            <form action="info_kardex" method="GET">
+              <div class="form-group">
+                <label for="CICLO">Buscar por ciclo:</label>
+                <select class="form-control" name="CICLO" id="CICLO" >
+                  <option value="" disabled selected>Ciclo...</option>
+                  <option value="0708">2007-2008</option>
+                  <option value="0809">2008-2009</option>
+                  <option value="0910">2009-2010</option>
+                  <option value="1011">2010-2011</option>
+                  <option value="1112">2011-2012</option>
+                  <option value="1213">2012-2013</option>
+                  <option value="1314">2013-2014</option>
+                  <option value="1415">2014-2015</option>
+                  <option value="1516">2015-2016</option>
+                  <option value="1617">2016-2017</option>
+                  <option value="17180">2017-2018 General</option>
+                  <option value="17181">2017-2018 Semestre 1</option>
+                  <option value="17182">2017-2018 Semestre 2</option>
+                  <option value="18190">2018-2019 General</option>
+                  <option value="18191">2018-2019 Semestre 1</option>
+                  <option value="18192">2018-2019 Semestre 2</option>
+                  <option value="19200">2019-2020</option>
+                  <option value="20210">2020-2021</option>
+                </select>
+                <button type="submit" class="btn btn-primary">BUSCAR INFO</button>
+              </div>
+            </form>
           </div>
       </div>
       </div>
@@ -194,27 +177,6 @@
 </script>
 
 <script>
-  $(document).ready(function() {
-    $(document).ready(function() {
-  // Setup - add a text input to each footer cell
-    $('#myTable thead tr').clone(true).appendTo( '#myTable thead' );
-    $('#myTable thead tr:eq(1) th').each( function (i) {
-      var title = $(this).text();
-        $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
-        $( 'input', this ).on( 'keyup change', function () {
-          if ( table.column(i).search() !== this.value ) {
-            table
-              .column(i)
-              .search( this.value )
-              .draw();
-            }
-          });
-        });
-      var table = $('#myTable').DataTable( {
-        orderCellsTop: true,
-        fixedHeader: true
-      });
-    });
-  });
+
 </script>
 </html>

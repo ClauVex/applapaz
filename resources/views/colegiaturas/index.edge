@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Alumnos</title>
+  <title>document</title>
   <style> /*!
     * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/template-overviews/simple-sidebar)
     * Copyright 2013-2019 Start Bootstrap
@@ -116,15 +116,12 @@
             <li class="nav-item active">
               <a class="nav-link" href="/">HOME <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-              <a href="/alumnos/crear" id="botonCrear" type="button" class="btn btn-primary">CREAR NUEVO ALUMNO</a>
-            </li>
           </ul>
         </div>
       </nav>
       <div class="container-fluid">
           <div class="jumbotron text-center">
-            <h3>ALUMNOS REGISTRADOS</h3>
+            <h3>CONSULTA COLEGIATURAS</h3>
           </div>
           <div class="table-wrapper-scroll-y my-custom-scrollbar">
             <div class="table-responsive">
@@ -132,37 +129,43 @@
                   <thead>
                       <tr>
                           <th></th>
-                          <th>ID ALUMNO</th>
-                          <th>MATRICULA</th>
-                          <th>AP_PATERNO</th>
-                          <th>AP_MATERNO</th>
-                          <th>NOMBRE_P</th>
-                          <th>FEC_NACIM</th>
-                          <th>TIPO_SANGRE</th>
                           <th>CICLO</th>
+                          <th>ID_ALUMNO</th>
+                          <th>MATRICULA</th>
                           <th>SECCION</th>
                           <th>GRADO</th>
                           <th>GRUPO</th>
+                          <th>STAT_ALUMNO</th>
+                          <th>FECHA_INSC</th>
+                          <th>FECHA_BAJA</th>
+                          <th>STAT_INSC</th>
+                          <th>SEMESTRE</th>
+                          <th>FECHA_OPER</th>
                       </tr>
                   </thead>
                   <tbody>
-                      @each(alumno in alumnos)
+                      @each(kardex in kardex_ciclos)
                       <tr>
                         <td>
-                          <a class="btn btn-warning" href="/alumnos/editar/{{alumno.id}}"><i title="Editar" class="fa fa-edit"></i></a>
-                          <a class="btn btn-info" href="/alumnos/ver/{{alumno.id}}"><i title="Mirar" class="fa fa-eye"></i></a>
+                          <form action="/info_kardex/ver" method="get">
+                            <input type="hidden" name="VER" id="VER" value="{{kardex.ID_ALUMNO}}">
+                            <input type="hidden" name="CICLO" id="CICLO" value="{{kardex.CICLO}}">
+                            <button type="submit" class="btn btn-info"><i title="Mirar" class="fa fa-eye"></i></button>
+                          </form>
+                          <!--<a class="btn btn-info" href="/info_kardex/ver/{{kardex.id}}"><i title="Mirar" class="fa fa-eye"></i></a>-->
                        </td>
-                        <td title="ID ALUMNO">{{alumno.id}}</td>
-                        <td title="MATRICULA">{{alumno.MATRICULA}}</td>
-                        <td title="AP_PATERNO">{{alumno.AP_PATERNO}}</td>
-                        <td title="AP_MATERNO">{{alumno.AP_MATERNO}}</td>
-                        <td title="NOMBRE_P">{{alumno.NOMBRE_P}}</td>
-                        <td title="FEC_NACIM">{{alumno.FEC_NACIM}}</td>
-                        <td title="TIPO_SANGRE">{{alumno.TIPO_SANGRE}}</td>
-                        <td title="CICLO">{{alumno.CICLO}}</td>
-                        <td title="SECCION">{{alumno.SECCION}}</td>
-                        <td title="GRADO">{{alumno.GRADO}}</td>
-                        <td title="GRUPO">{{alumno.GRUPO}}</td>
+                        <td title="CICLO">{{kardex.CICLO}}</td>
+                        <td title="ID_ALUMNO">{{kardex.ID_ALUMNO}}</td>
+                        <td title="MATRICULA">{{kardex.MATRICULA}}</td>
+                        <td title="SECCION">{{kardex.SECCION}}</td>
+                        <td title="GRADO">{{kardex.GRADO}}</td>
+                        <td title="GRUPO">{{kardex.GRUPO}}</td>
+                        <td title="STAT_ALUM">{{kardex.STAT_ALUMNO}}</td>
+                        <td title="FECHA_INSC">{{kardex.FECHA_INSC}}</td>
+                        <td title="FECHA_BAJA">{{kardex.FECHA_BAJA}}</td>
+                        <td title="STAT_INSC">{{kardex.STAT_INSC}}</td>
+                        <td title="SEMESTRE">{{kardex.SEMESTRE}}</td>
+                        <td title="FECHA_OPER">{{kardex.FECHA_OPER}}</td>
                       </tr>
                       @endeach
                   </tbody>

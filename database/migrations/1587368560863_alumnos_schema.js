@@ -48,6 +48,7 @@ class AlumnosSchema extends Schema {
             table.string('SEXO')
             table.string('STAT_ALUM')
             table.string('STAT_BECA')
+            table.string('TUTOR')
             table.date('FECHA_CAPT')
             table.string('SECCION_M')
             table.string('GRADO_M')
