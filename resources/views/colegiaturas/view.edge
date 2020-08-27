@@ -47,26 +47,211 @@ body {
 .animate-out-again {
   transform: translate(-200%);
 }
+.my-custom-scrollbar {
+  position: relative;
+  height: 480px;
+  overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+div.scrollable {
+    overflow: auto;
+}
+
   </style>
   <!--{{style('css/view.css')}}-->
   <link rel="stylesheet" href="https://drive.google.com/uc?authuser=0&id=1w-OStGxF1oCWETeVHDeBXtJV7-iWoR4t&export=download" type="text/css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<body>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.1.7/css/fixedHeader.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<body onload="formatDate()">
     <div>
       <form>
-        <h1 class="mt-4 mb-3">Ciclo: {{kardex.CICLO}} - Consulta de colegiaturas
-        </h1>
+        <h1 class="mt-4 mb-3">Ciclo: {{kardex.CICLO}} - Consulta de colegiaturas</h1>
           <div class="card mb-4">
             <div class="card-body">
               <div class="row" style="font-size:12px">
                 <div class="col-lg-2">
+                  <table class="table table-bordered">
+                    <tbody>
+                      <tr>
+                        <td>
+                          ID ALUMNO:{{alumno.id}}
+                        </td>
+                        <td>
+                          NOMBRE:{{alumno.NOMBRE_P}}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          CICLO:{{alumno.CICLO}}
+                        </td>
+                        <td>
+                          ESTATUS:{{kardex.STAT_ALUMNO}}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          SECCION:{{alumno.SECCION}}
+                        </td>
+                        <td>
+                          MATRICULA:{{alumno.MATRICULA}}
+                        </td>
+                      <tr>
+                        <td>
+                          GRADO:{{alumno.GRADO}}
+                        </td>
+                        <td>
+                          GRUPO:{{alumno.GRUPO}}
+                        </td>
+                      </tr>
+                      </tr>
+                    </tbody>
+                  </table>
                   <div>
-                    <a class="btn btn-primary" href="/alumnos">Regresar al menu</a>
+                    <a class="btn btn-primary" href="/consulta_colegiaturas">Regresar al menu</a>
                   </div>
                 </div>
                 <div class="col-lg-10" id="contenido">
-
+                  <div class="container">
+                    <ul class="nav nav-tabs" role="tablist">
+                      <li class="nav-item"><a href="#a" data-toggle="tab">COLEGIATURAS</a></li>
+                      <li class="nav-item"><a href="#b" data-toggle="tab">ANTICIPO</a></li>
+                      <li class="nav-item"><a href="#c" data-toggle="tab">NOTAS DE CREDITO</a></li>
+                    </ul>
+                    <div class="tab-content">
+                      <div class="container tab-pane active" id="a">
+                        <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                          <div class="table-responsive">
+                            <table class="table table-bordered">
+                              <thead>
+                                <tr>
+                                  <th>AÑO</th>
+                                  <th>MES</th>
+                                  <th>IMPORTE</th>
+                                  <th>FECHA_LIM</th>
+                                  <th>STAT_PAGO</th>
+                                  <th>FACTURA</th>
+                                  <th>FECHA_PAGO</th>
+                                  <th>RECARGO</th>
+                                  <th>CONDONADO</th>
+                                  <th>ST_PAG_INT</th>
+                                  <th>CONSEC_INT</th>
+                                  <th>FEC_PAG_INT</th>
+                                  <th>SEG_ORF</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                @each(coleg in colegiaturas)
+                                  <tr>
+                                    <td style="width:50%" title="AÑO">{{coleg.AN_ESCOL}}</td>
+                                    <td style="width:50%" title="MES">{{coleg.MES}}</td>
+                                    <td style="width:50%" title="IMPORTE">{{coleg.IMP_COLEG}}</td>
+                                    <td style="width:50%" title="FECHA_LIM">
+                                      <div class="scrollable">
+                                        {{coleg.FECHA_LIM}}
+                                      </div>
+                                    </td>
+                                    <td style="width:50%" title="STAT_PAGO">{{coleg.STAT_PAGO}}</td>
+                                    <td style="width:50%" title="FACTURA">{{coleg.CONSEC_FACT}}</td>
+                                    <td style="width:50%" title="FECHA_PAGO">
+                                      <div class="scrollable">
+                                        {{coleg.FECHA_OPER}}
+                                      </div>
+                                    </td>
+                                    <td style="width:50%" title="RECARGO">{{coleg.RECARGO}}</td>
+                                    <td style="width:50%" title="CONDONADO">{{coleg.CONDONADO}}</td>
+                                    <td style="width:50%" title="ST_PAG_INT">{{coleg.ST_PAG_INT}}</td>
+                                    <td style="width:50%" title="CONSEC_INT">{{coleg.CONSEC_INT}}</td>
+                                    <td style="width:50%" title="FEC_PAG_INT">
+                                      <div class="scrollable">
+                                        {{coleg.FEC_PAG_INT}}
+                                      </div>
+                                    </td>
+                                    <td style="width:50%" title="SEG_ORF">{{coleg.SEG_ORF}}</td>
+                                  </tr>
+                                @endeach
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="container tab-pane" id="b">
+                        <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                          <div class="table-responsive">
+                            <table class="table table-bordered">
+                              <thead>
+                                <tr>
+                                  <th>CICLO</th>
+                                  <th>ID</th>
+                                  <th>ANTICIPO</th>
+                                  <th>APLIC</th>
+                                  <th>FACTURA</th>
+                                  <th>OBSERV</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                @each(anticipo in anticipos)
+                                  <tr>
+                                    <td style="width:50%">{{anticipo.CICLO_ESCOL}}</td>
+                                    <td style="width:50%">{{anticipo.ID_OPER}}</td>
+                                    <td style="width:50%">{{anticipo.IMPORTE_ANTIC}}</td>
+                                    <td style="width:50%">{{anticipo.IMPORTE_APLIC}}</td>
+                                    <td style="width:50%">{{anticipo.FACT_APLIC}}</td>
+                                    <td style="width:100%">{{anticipo.OBSERV}}</td>
+                                  </tr>
+                                @endeach
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="container tab-pane" id="c">
+                        <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                          <div class="table-responsive">
+                            <table class="table table-bordered">
+                              <thead>
+                                <tr>
+                                  <th>NOTA</th>
+                                  <th>FECHA</th>
+                                  <th>IMPORTE</th>
+                                  <th>LOTE</th>
+                                  <th>FACTURA</th>
+                                  <th>CONCEPTO NOTACRED</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                @each(nota in notacreds)
+                                <tr>
+                                  <td style="width:50%">{{nota.id}}</td>
+                                  <td style="width:50%">
+                                    <div class="scrollable">
+                                      {{nota.FECHA_NC}}
+                                    </div>
+                                  </td>
+                                  <td style="width:50%">{{nota.IMPORTE}}</td>
+                                  <td style="width:50%">{{nota.LOTE_FACT}}</td>
+                                  <td style="width:50%">{{nota.CONSEC_FACT}}</td>
+                                  <td style="width:100%">{{nota.CONCEPTO}}</td>
+                                </tr>
+                                @endeach
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                   </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -74,4 +259,50 @@ body {
       </form>
     </div>
 </body>
+<script>
+  function formatDate(){
+    var x = document.getElementsByClassName("scrollable");
+    for (var i = 0; i < x.length; i++) {
+      var data = x[i].innerText;
+      if(data != "0000-00-00" ){
+        const date = new Date(data)
+        const options = {
+          year: 'numeric',
+          month: 'numeric',
+          day: 'numeric'
+        }
+        var newDate = new Intl.DateTimeFormat('es-MX', options).format(date)
+        x[i].innerHTML = newDate;
+        console.log(newDate);
+      }
+    }
+  }
+</script>
+<!--<script>
+  $(document).ready(function() {
+    $(document).ready(function() {
+  // Setup - add a text input to each footer cell
+    $('#myTable thead tr').clone(true).appendTo( '#myTable thead' );
+    $('#myTable thead tr:eq(1) th').each( function (i) {
+      var title = $(this).text();
+        $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+        $( 'input', this ).on( 'keyup change', function () {
+          if ( table.column(i).search() !== this.value ) {
+            table
+              .column(i)
+              .search( this.value )
+              .draw();
+            }
+          });
+        });
+      var table = $('#myTable').DataTable( {
+        orderCellsTop: true,
+        fixedHeader: true,
+        columnDefs: [
+            { width: 100}
+        ]
+      });
+    });
+  });
+</script>-->
 </html>

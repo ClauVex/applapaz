@@ -2,6 +2,8 @@
 const InfoKardex = use('App/Models/KardexCiclo')
 const InfoColegiat = use('App/Models/Colegiat')
 const InfoAlumno = use('App/Models/Alumno')
+const InfoNotaCred = use('App/Models/NotaCred')
+const InfoAnticipo = use('App/Models/Anticipo')
 
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
@@ -63,13 +65,9 @@ class KardexCicloController {
         let kardex = await InfoKardex.findBy('ID_ALUMNO', id)
         let colegiaturas = await InfoColegiat.query().where({ ID_ALUMNO: id, CICLO: ciclo }).fetch()
         let alumno = await InfoAlumno.findBy('id', id)
-        return view.render('colegiaturas.view', { kardex: kardex, colegiaturas: colegiaturas.rows, alumno: alumno })
-            /*var id = data['VER']
-            var ciclo = data['CICLO']
-            let kardex = await InfoKardex.findBy('ID_ALUMNO', data['VER'])
-            let colegiaturas = await InfoColegiat.query().where({ ID_ALUMNO: id, CICLO: ciclo }).fetch()
-            let alumno = await InfoAlumno.findBy('id', data['VER'])
-            return view.render('colegiaturas.view', { kardex: kardex, colegiaturas: colegiaturas.rows, alumno: alumno })*/
+        let anticipos = await InfoAnticipo.query().where('ID_ALUMNO', id).fetch()
+        let notacreds = await InfoNotaCred.query().where('ID_ALUMNO', id).fetch()
+        return view.render('colegiaturas.view', { kardex: kardex, colegiaturas: colegiaturas.rows, alumno: alumno, anticipos: anticipos.rows, notacreds: notacreds.rows })
     }
 
     /**
