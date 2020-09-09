@@ -67,7 +67,7 @@ class KardexCicloController {
         let alumno = await InfoAlumno.findBy('id', id)
         let anticipos = await InfoAnticipo.query().where('ID_ALUMNO', id).fetch()
         let notacreds = await InfoNotaCred.query().where('ID_ALUMNO', id).fetch()
-        return view.render('colegiaturas.view', { kardex: kardex, colegiaturas: colegiaturas.rows, alumno: alumno, anticipos: anticipos.rows, notacreds: notacreds.rows })
+        return view.render('colegiaturas.view', { kardex: kardex, colegiaturas: colegiaturas.rows, alumno: alumno, anticipos: anticipos.rows, notacreds: notacreds.rows, ciclo })
     }
 
     /**
